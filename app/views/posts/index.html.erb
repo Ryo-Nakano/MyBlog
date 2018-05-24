@@ -1,0 +1,18 @@
+<h2>
+  <%= link_to 'Add New', new_post_path, class: 'header-menu' %>
+  My Posts
+</h2>
+<ul>
+  <% @posts.each do |p| %>
+    <li>
+      <%= link_to p.title, post_path(p) %>
+      <%= link_to '[Edit]', edit_post_path(p), class: 'command' %>
+      <%= link_to '[×]',
+      post_path(p),
+      method: :delete, 
+      class: 'command',
+      data:{confirm: 'Sure?'} %>
+    </li>
+  <% end %>
+
+</ul>
